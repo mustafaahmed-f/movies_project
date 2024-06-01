@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  background-color: #242424;
+  color: white;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+.main:hover::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background-color: #a5a4a4;
+  opacity: 0.3;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #ff0000;
+}
+
+.addShadowAnimation {
+  animation: shadowAnimation 1s infinite alternate;
+}
+
+@keyframes shadowAnimation {
+  from {
+    text-shadow: 0px 0px 1px #ff0000;
+  }
+  to {
+    text-shadow: 0px 0px 3px 3px #ff0000, 0px 0px 5px 7px #ff0000,
+      0px 0px 7px 9px #ff0000;
+  }
+  /* 100% {
+    text-shadow: 0px 0px 1px #ff0000;
+  } */
+}
+
+.owl-dot.active span {
+  background-color: #ff0000 !important;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #fff;
+  border-bottom-color: #ff0000;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.movieCardLoader {
+  width: 215px;
+  height: 220px;
+  background: linear-gradient(0.25turn, transparent, #a9a2a2, transparent),
+    linear-gradient(#444343, #444343), linear-gradient(#444343, #444343),
+    linear-gradient(#444343, #444343);
+  background-color: #a9a2a2;
+  background-repeat: no-repeat;
+  background-size: 215px 220px, 215px 130px, 100px 15px, 150px 15px;
+  background-position: -215px 0, 0 0, 15px 150px, 15px 180px;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  to {
+    background-position: 215px 0, 0 0, 15px 150px, 15px 180px;
+  }
+}
