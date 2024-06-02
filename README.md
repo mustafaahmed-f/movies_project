@@ -1,30 +1,78 @@
-# React + TypeScript + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <h1 style="text-align: center">
+      Movies PRoject created using React + TypeScript 
+    </h1>
+    <h2>Table of contents</h2>
+    <hr />
+    <ul id="table-contents">
+      <li><a href="#About">About</a></li>
+      <li><a href="#Technologies">Technologies</a></li>
+      <li><a href="#Features">Features</a></li>
+      <li><a href="#Images">Images</a></li>
+      <li><a href="#Deployment">Deployment</a></li>
+    </ul>
+    <hr />
+    <section id="About">
+      <h2># About</h2>
+      <p>
+        Welcome to the Movie Search Application! This project is a React application built using TypeScript and Vite. It is designed to provide an intuitive and user-friendly interface for searching movies. The application leverages the TMDb (The Movie Database) API to fetch movie data, allowing users to explore a vast collection of movies.
+      </p>
+      <h3 style="margin-top: 4px">==> How to install :</h3>
+      <ul>
+        <li>
+          git clone :
+          <a href="https://github.com/mustafaahmed-f/E-Commerce-back-end"
+            >https://github.com/mustafaahmed-f/E-Commerce-back-end</a
+          >
+        </li>
+        <li>npm install</li>
+        <li>nodemon OR npm start</li>
+      </ul>
+      <h3 style="margin-top: 4px">==> Contact me :</h3>
+      <p>
+        Email :
+        <a href="mailto:mostafafikry97@gmail.com">mostafafikry97@gmail.com</a>
+      </p>
+    </section>
+    <hr />
+    <section id="Technologies">
+      <h2># Technologies</h2>
+      <ul>
+        <li>ReactJs</li>
+        <li>Vite</li>
+        <li>Redux / Redux toolkit</li>
+        <li>TypeScript</li>
+        <li>React router dom</li>
+        <li>React Query</li>
+      </ul>
+    </section>
+     <hr />
+    <section id="Features">
+      <h2># Features</h2>
+      <ul>
+        <li>Search for movies by title</li>
+        <li>View movie details including title</li>
+        <li>View popular movies</li>
+        <li>View movies currently playing in theaters</li>
+        <li>View upcoming movies</li>
+        <li>View top rated movies</li>
+      </ul>
+    </section>
+    <hr />
+  <section id="Deployment">
+      <h2># Deployment</h2>
+      <p>
+        Deployed on Netlify synchronized with github repository
+      </p>
+      <p>
+        Main Link :
+        <a href="https://ecommercebymustafa.onrender.com"
+          >https://ecommercebymustafa.onrender.com</a
+        >
+      </p>
+    </section>
+  </body>
+</html>
