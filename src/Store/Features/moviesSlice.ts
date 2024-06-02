@@ -6,6 +6,8 @@ import {
 } from "../../utils/moviesInterfaces";
 // import { RootState } from "../store";
 
+///// I used redux for caching .. I know it is not a good practice but I am using it for this project
+
 const initialState: myState = {
   nowPlayingMovies: [],
   trending: [], //// popular movies
