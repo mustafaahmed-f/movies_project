@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { RootState, store } from "../Store/store";
+import { RootState } from "../Store/store";
 
 import { useAppDispatch, useAppSelector } from "../Store/hooks";
 import {
@@ -34,13 +34,22 @@ const Home: React.FC = () => {
   //// before fetching data from API.
 
   useEffect(function () {
-    async function fetchingData(): Promise<any> {
-      //// Getting trending movies and showing them:
-      const newRelease = await getNewReleaseMovies();
-      if (newRelease.length) dispatch(setNewReleaseMovies(newRelease));
+    async function fetchingData(): Promise<void> {
+      //// Getting trending movies:
+      if (!trending.length) {
+        const result: movieCards[] = await getTrendingMovies();
+        if (result.length) dispatch(setTrending(result));
+      }
+      //// Getting new released movies and showing them:
+      if (!newReleaseMovies.length) {
+        const newRelease = await getNewReleaseMovies();
+        if (newRelease.length) dispatch(setNewReleaseMovies(newRelease));
+      }
       //// Getting topRated movies:
-      const topRated = await getTopRatedMovies();
-      if (topRated.length) dispatch(setTopRatedMovies(topRated));
+      if (!topRatedMovies.length) {
+        const topRated = await getTopRatedMovies();
+        if (topRated.length) dispatch(setTopRatedMovies(topRated));
+      }
     }
 
     fetchingData();
@@ -59,11 +68,11 @@ const Home: React.FC = () => {
 
 export default Home;
 
-export async function loader() {
-  const result: movieCards[] = await getTrendingMovies();
-  if (result.length) {
-    store.dispatch(setTrending(result));
-    return result;
-  }
-  return null;
-}
+// export async function loader() {
+//   const result: movieCards[] = await getTrendingMovies();
+//   if (result.length) {
+//     store.dispatch(setTrending(result));
+//     return result;
+//   }
+//   return null;
+// }

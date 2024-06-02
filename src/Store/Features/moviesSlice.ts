@@ -11,10 +11,8 @@ const initialState: myState = {
   nowPlayingMovies: [],
   trending: [], //// popular movies
   newReleaseMovies: [], ////upcoming movies
-  newReleaseSeries: [],
   topRatedMovies: [],
   youMayLikeMovies: [], //// MOvie Recommendations
-  detailedMovies: [],
   searchQuery: "",
 };
 
@@ -31,15 +29,9 @@ export const moviesSlice = createSlice({
     setNewReleaseMovies(state, action: PayloadAction<movieCards[]>) {
       state.newReleaseMovies = action.payload;
     },
-    setNewReleaseSeries(state, action: PayloadAction<movieCards[]>) {
-      state.newReleaseSeries = action.payload;
-    },
+
     setTopRatedMovies(state, action: PayloadAction<movieCards[]>) {
       state.topRatedMovies = action.payload;
-    },
-
-    setDetailedMovies(state, action: PayloadAction<movieDetails[]>) {
-      state.detailedMovies = action.payload;
     },
     setSearchQuery(state, action: PayloadAction<string>) {
       state.searchQuery = action.payload;
@@ -51,9 +43,7 @@ export const {
   setSearchQuery,
   setTrending,
   setNowPlaying,
-  setDetailedMovies,
   setNewReleaseMovies,
-  setNewReleaseSeries,
   setTopRatedMovies,
 } = moviesSlice.actions;
 

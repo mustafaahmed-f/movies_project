@@ -66,13 +66,10 @@ export interface movieDetails {
 
 export interface myState {
   nowPlayingMovies: movieCards[];
-
   trending: movieCards[];
   newReleaseMovies: movieCards[];
-  newReleaseSeries: movieCards[];
   topRatedMovies: movieCards[];
   youMayLikeMovies: movieCards[];
-  detailedMovies: movieDetails[];
   searchQuery: string;
 }
 

@@ -3,7 +3,7 @@ import { lazy, Suspense } from "react";
 import AppLayout from "./UI/AppLayout";
 import Home from "./Pages/Home";
 const Details = lazy(() => import("./Pages/Details"));
-import { loader as homeLoader } from "./Pages/Home";
+// import { loader as homeLoader } from "./Pages/Home";
 import { loader as detailsLoader } from "./Pages/Details";
 import MainLoader from "./UI/MainLoader";
 
@@ -14,7 +14,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: homeLoader,
+        // loader: homeLoader,
       },
       {
         path: "/details/:movieID",
