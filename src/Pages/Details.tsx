@@ -13,6 +13,7 @@ const imgBaseURL = import.meta.env.VITE_IMG_URL;
 
 const Details: React.FC = (): JSX.Element => {
   const [moviesArray, setMoviesArray] = useState<movieCards[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   const movie: any = useLoaderData();
   const detailsTableObj: detailsTable = {
     production_companies: movie.production_companies,
@@ -23,8 +24,17 @@ const Details: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     async function fetchingData(): Promise<any> {
-      const movies: movieCards[] = await getYouMayLikeMovies(movie.id);
-      if (movies.length) setMoviesArray(movies);
+      try {
+        setLoading(true);
+        const movies: movieCards[] = await getYouMayLikeMovies(movie.id);
+        if (movies.length) setMoviesArray(movies);
+        setLoading(false);
+      } catch (error: any) {
+        setLoading(false);
+        throw new Error(error);
+      } finally {
+        setLoading(false);
+      }
     }
     fetchingData();
   }, []);
@@ -38,8 +48,14 @@ const Details: React.FC = (): JSX.Element => {
         <MovieDetailsCard movie={movie} detailsTableObj={detailsTableObj} />
       </div>
       <div className="py-6 mt-3">
-        {moviesArray.length ? (
-          <MoviesList title={"You may alse like"} movies={moviesArray} />
+        {!loading ? (
+          moviesArray.length ? (
+            <MoviesList title={"You may alse like"} movies={moviesArray} />
+          ) : (
+            <div className="flex items-center justify-center py-7">
+              <p className="text-lg text-center">No movies found</p>
+            </div>
+          )
         ) : (
           <MovieCardLoader />
         )}
