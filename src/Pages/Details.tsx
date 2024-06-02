@@ -1,11 +1,9 @@
 import { useLoaderData } from "react-router-dom";
 import { getMovieDetails, getYouMayLikeMovies } from "../Services/moviesAPIs";
 import { movieCards, movieDetails } from "../utils/moviesInterfaces";
-import GenresContainer from "../Reusable components/GenresContainer";
-import MovieRating from "../Reusable components/MovieRating";
-import ReleaseDate from "../Reusable components/ReleaseDate";
+
 import { detailsTable } from "../utils/movieDetailsTableInterface";
-import DetailsTable from "../UI/DetailsTable";
+
 import MovieDetailsCard from "../UI/MovieDetailsCard";
 import MoviesList from "../UI/MoviesList";
 import MovieCardLoader from "../UI/MovieCardLoader";

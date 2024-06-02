@@ -2,7 +2,6 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {
   // actionPayloadMovies,
   movieCards,
-  movieDetails,
   myState,
 } from "../../utils/moviesInterfaces";
 // import { RootState } from "../store";

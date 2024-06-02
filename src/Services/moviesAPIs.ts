@@ -116,3 +116,20 @@ export const getMovieDetails = async (id: number): Promise<movieDetails> => {
     throw new Error(error);
   }
 };
+
+export const getReviews = async (id: number): Promise<movieDetails> => {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${apiKey}`
+    );
+    if (!response.ok) {
+      throw new Error(`Error! status: ${response.status}`);
+    } else {
+      const data = await response.json();
+      console.log(data.results);
+      return data.results;
+    }
+  } catch (error: any) {
+    throw new Error(error);
+  }
+};
