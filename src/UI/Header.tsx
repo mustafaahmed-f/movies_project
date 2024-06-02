@@ -35,14 +35,16 @@ export default function Header() {
 
   return (
     <div className="flex flex-col items-center justify-between w-full gap-4 px-3 py-5 sm:flex-row sm:gap-0 min-w-screen flex-nowrap sm:px-6 bg-navBar">
-      <Link
-        to="/"
-        style={headerTitle}
-        className="cursor-pointer w-fit sm:pe-0 sm:w-1/2 addShadowAnimation"
-        onClick={disableLink}
-      >
-        Movies
-      </Link>
+      <div className="w-fit sm:w-1/2">
+        <Link
+          to="/"
+          style={headerTitle}
+          className="cursor-pointer w-fit sm:pe-0 addShadowAnimation"
+          onClick={disableLink}
+        >
+          Movies
+        </Link>
+      </div>
       <div className="flex flex-grow w-full text-black bg-white sm:w-1/2 rounded-xl">
         <input
           placeholder="Search movies ..."
