@@ -7,13 +7,11 @@ import { detailsTable } from "../utils/movieDetailsTableInterface";
 import MovieDetailsCard from "../UI/MovieDetailsCard";
 import MoviesList from "../UI/MoviesList";
 import MovieCardLoader from "../UI/MovieCardLoader";
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 const imgBaseURL = import.meta.env.VITE_IMG_URL;
 
 const Details: React.FC = (): JSX.Element => {
-  const [moviesArray, setMoviesArray] = useState<movieCards[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
   const movie: any = useLoaderData();
   const detailsTableObj: detailsTable = {
     production_companies: movie.production_companies,
@@ -22,22 +20,29 @@ const Details: React.FC = (): JSX.Element => {
     original_language: movie.original_language,
   };
 
-  useEffect(() => {
-    async function fetchingData(): Promise<any> {
-      try {
-        setLoading(true);
-        const movies: movieCards[] = await getYouMayLikeMovies(movie.id);
-        if (movies.length) setMoviesArray(movies);
-        setLoading(false);
-      } catch (error: any) {
-        setLoading(false);
-        throw new Error(error);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchingData();
-  }, []);
+  const moviesArr = useQuery({
+    queryKey: ["details", movie.id],
+    queryFn: () => getYouMayLikeMovies(Number(movie.id)),
+  });
+
+  const moviesArray = moviesArr.data as movieCards[];
+
+  // useEffect(() => {
+  //   async function fetchingData(): Promise<any> {
+  //     try {
+  //       setLoading(true);
+  //       const movies: movieCards[] = await getYouMayLikeMovies(movie.id);
+  //       if (movies.length) setMoviesArray(movies);
+  //       setLoading(false);
+  //     } catch (error: any) {
+  //       setLoading(false);
+  //       throw new Error(error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   }
+  //   fetchingData();
+  // }, []);
 
   return (
     <div className="flex flex-col">
@@ -48,16 +53,14 @@ const Details: React.FC = (): JSX.Element => {
         <MovieDetailsCard movie={movie} detailsTableObj={detailsTableObj} />
       </div>
       <div className="py-6 mt-3">
-        {!loading ? (
-          moviesArray.length ? (
-            <MoviesList title={"You may alse like"} movies={moviesArray} />
-          ) : (
-            <div className="flex items-center justify-center py-7">
-              <p className="text-lg text-center">No movies found</p>
-            </div>
-          )
-        ) : (
+        {moviesArr.status === "pending" ? (
           <MovieCardLoader />
+        ) : moviesArray?.length ? (
+          <MoviesList title={"You may alse like"} movies={moviesArray} />
+        ) : (
+          <div className="flex items-center justify-center py-7">
+            <p className="text-lg text-center">No movies found</p>
+          </div>
         )}
       </div>
     </div>
