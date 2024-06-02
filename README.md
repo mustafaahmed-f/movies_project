@@ -24,8 +24,8 @@
       <ul>
         <li>
           git clone :
-          <a href="https://github.com/mustafaahmed-f/E-Commerce-back-end"
-            >https://github.com/mustafaahmed-f/E-Commerce-back-end</a
+          <a href="https://665cb5ef77ed458e1c28f01c--moviesappbymustafa.netlify.app/"
+            >https://665cb5ef77ed458e1c28f01c--moviesappbymustafa.netlify.app/</a
           >
         </li>
         <li>npm install</li>
@@ -69,8 +69,8 @@
       </p>
       <p>
         Main Link :
-        <a href="https://ecommercebymustafa.onrender.com"
-          >https://ecommercebymustafa.onrender.com</a
+        <a href="https://665cb5ef77ed458e1c28f01c--moviesappbymustafa.netlify.app/"
+          >https://665cb5ef77ed458e1c28f01c--moviesappbymustafa.netlify.app/</a
         >
       </p>
     </section>
