@@ -1,30 +1,20 @@
 import { Outlet, useNavigation } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";
-import { movieCards } from "../utils/moviesInterfaces";
-import { getNowPlayingMovies } from "../Services/moviesAPIs";
-import { store } from "../Store/store";
-import { setNowPlaying } from "../Store/Features/moviesSlice";
+
 import MainLoader from "./MainLoader";
+import Upwards from "./Upwards";
 
 export default function AppLayout() {
   const navigation = useNavigation();
   return (
-    <div className="flex flex-col w-screen min-h-screen p-0 m-0 ">
+    <div className="flex flex-col min-h-screen p-0 m-0 max-w-screen ">
       <Header />
       <main className="flex flex-grow w-full py-4 overflow-x-hidden main scroll-smooth sm:py-8">
         {navigation.state === "loading" ? <MainLoader /> : <Outlet />}
       </main>
       <Footer />
+      <Upwards />
     </div>
   );
-}
-
-export async function loader() {
-  const result: movieCards[] = await getNowPlayingMovies();
-  if (result.length) {
-    store.dispatch(setNowPlaying(result));
-    return result;
-  }
-  return null;
 }

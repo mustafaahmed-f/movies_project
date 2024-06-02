@@ -1,4 +1,6 @@
 import { SearchOutlined } from "@mui/icons-material";
+import { Link, useNavigate } from "react-router-dom";
+import { disableLink } from "../utils/disableLink";
 
 const headerTitle = {
   color: "#FF0000",
@@ -10,12 +12,14 @@ const headerTitle = {
 export default function Header() {
   return (
     <div className="flex flex-col items-center justify-between w-full gap-4 px-3 py-5 sm:flex-row sm:gap-0 min-w-screen flex-nowrap sm:px-6 bg-navBar">
-      <div
+      <Link
+        to={"/"}
         style={headerTitle}
-        className="w-fit sm:pe-0 sm:w-1/2 addShadowAnimation"
+        className="cursor-pointer w-fit sm:pe-0 sm:w-1/2 addShadowAnimation"
+        onClick={disableLink}
       >
         Movies
-      </div>
+      </Link>
       <div className="flex flex-grow w-full text-black bg-white sm:w-1/2 rounded-xl">
         <input
           placeholder="Search movies ..."

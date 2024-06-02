@@ -10,7 +10,7 @@ export default {
       keyframes: {
         viewMore: {
           from: {
-            transfom: "rotate(0)",
+            transform: "rotate(0)",
           },
           to: {
             transform: "rotate(90deg)",
@@ -18,7 +18,7 @@ export default {
         },
         viewLess: {
           from: {
-            transfom: "rotate(90deg)",
+            transform: "rotate(90deg)",
           },
           to: {
             transform: "rotate(0)",
@@ -26,8 +26,8 @@ export default {
         },
       },
       animation: {
-        viewMore: "viewMore 0.5s ease-in-out",
-        viewLess: "viewLess 0.5s ease-in-out",
+        viewMore: "viewMore 0.5s forwards",
+        viewLess: "viewLess 0.5s forwards",
       },
     },
   },

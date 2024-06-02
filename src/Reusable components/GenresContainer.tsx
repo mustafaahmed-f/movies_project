@@ -4,7 +4,7 @@ interface myProps {
 
 const GenresContainer: React.FC<myProps> = ({ title }) => {
   return (
-    <div className="px-1 py-2 text-black bg-white rounded-md">
+    <div className="px-2 py-2 text-xs text-black bg-white rounded-md sm:text-sm md:text-base">
       <p className="font-semibold">{title}</p>
     </div>
   );
