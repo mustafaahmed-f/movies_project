@@ -28,7 +28,7 @@
           >
         </li>
         <li>npm install</li>
-        <li>nodemon OR npm start</li>
+        <li>npm run dev</li>
       </ul>
       <h3 style="margin-top: 4px">==> Contact me :</h3>
       <p>
