@@ -1,12 +1,14 @@
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import { CalendarMonth, Star } from "@mui/icons-material";
+
 import React from "react";
+import MovieRating from "../Reusable components/MovieRating";
+import ReleaseDate from "../Reusable components/ReleaseDate";
+import WatchBtn from "../Reusable components/WatchBtn";
 
 const mainImgURL = import.meta.env.VITE_IMG_URL;
 
 const cardStyle: React.CSSProperties = {
-  //   backgroundImage: `url('https://image.tmdb.org/t/p/w500/fqv8v6AycXKsivp1T5yKtLbGXce.jpg')`,
   backgroundSize: "cover",
   backgroundPosition: "center center",
   backgroundRepeat: "no-repeat",
@@ -41,37 +43,17 @@ const OwlCarouselCard: React.FC<CardProps> = ({
     <div
       style={{ ...cardStyle, backgroundImage: `url(${mainImgURL}${imgURL})` }}
     >
-      <div className="flex  flex-row gap-2 items-center justify-center w-full sm:gap-3 text-white font-semibold">
-        <button className="bg-movieColor outline rounded-sm outline-movieColor outline-offset-0 px-2 py-1 sm:px-3 sm:py-2 text-sm sm:text-base flex flex-row gap-1 sm:gap-2 items-center justify-center">
-          Watch now{" "}
-          <span>
-            <PlayCircleIcon />
-          </span>
-        </button>
-        <button className="bg-transparent outline rounded-sm outline-movieColor px-2 py-1 sm:px-3 sm:py-2 flex flex-row gap-1 sm:gap-2 items-center justify-center">
-          Watch later
-          <span>
-            <AccessTimeIcon />
-          </span>
-        </button>
+      <div className="flex flex-row items-center justify-center w-full gap-2 font-semibold text-white sm:gap-3">
+        <WatchBtn icon={<PlayCircleIcon />} title="Watch now" />
+        <WatchBtn icon={<AccessTimeIcon />} title="Watch later" />
       </div>
-      <div className="details flex flex-col items-start sm:gap-4 gap-3">
+      <div className="flex flex-col items-start gap-3 details sm:gap-4">
         <p className="font-bold"> {title}</p>
         <div className="flex items-center justify-start">
-          <div className="movieDetails flex gap-3 items-center font-normal text-sm">
-            <div className="flex items-center gap-1">
-              <span>
-                <CalendarMonth />
-              </span>{" "}
-              {date.split("-")[0]}
-            </div>
+          <div className="flex items-center gap-3 text-sm font-normal movieDetails">
+            <ReleaseDate date={date} />
 
-            <div className="flex items-center gap-1">
-              <span>
-                <Star />
-              </span>{" "}
-              {rating}
-            </div>
+            <MovieRating rating={rating} />
           </div>
         </div>
         <p className="text-sm">{description}</p>

@@ -9,19 +9,19 @@ const headerTitle = {
 
 export default function Header() {
   return (
-    <div className="flex flex-nowrap items-center justify-between py-5 sm:px-6 px-2 w-screen">
+    <div className="flex flex-col items-center justify-between w-full gap-4 px-3 py-5 sm:flex-row sm:gap-0 min-w-screen flex-nowrap sm:px-6 bg-navBar">
       <div
         style={headerTitle}
-        className="w-fit pe-4 sm:pe-0 sm:w-1/2 addShadowAnimation"
+        className="w-fit sm:pe-0 sm:w-1/2 addShadowAnimation"
       >
         Movies
       </div>
-      <div className="sm:w-1/2 flex-grow rounded-xl bg-white text-black flex w-fit">
+      <div className="flex flex-grow w-full text-black bg-white sm:w-1/2 rounded-xl">
         <input
           placeholder="Search movies ..."
-          className="px-2 py-2 text-base flex-grow focus:outline-none rounded-xl"
+          className="flex-grow px-2 py-2 text-base focus:outline-none rounded-xl"
         />
-        <div className="my-auto px-2 focus:outline-none">
+        <div className="px-1 my-auto sm:px-2 focus:outline-none">
           <SearchOutlined />
         </div>
       </div>

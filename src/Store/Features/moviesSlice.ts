@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {
-  actionPayloadMovies,
+  // actionPayloadMovies,
   movieCards,
   movieDetails,
   myState,
@@ -9,13 +9,13 @@ import {
 
 const initialState: myState = {
   nowPlayingMovies: [],
-
   trending: [], //// popular movies
   newReleaseMovies: [], ////upcoming movies
   newReleaseSeries: [],
   topRatedMovies: [],
-  youMayLikeMovies: [],
+  youMayLikeMovies: [], //// MOvie Recommendations
   detailedMovies: [],
+  searchQuery: "",
 };
 
 export const moviesSlice = createSlice({
@@ -25,41 +25,36 @@ export const moviesSlice = createSlice({
     setNowPlaying(state, action) {
       state.nowPlayingMovies = action.payload;
     },
-    setMovies: {
-      prepare: (
-        recentlyUpdatedMovies: movieCards[],
-        trending: movieCards[],
-        newReleaseMovies: movieCards[],
-        newReleaseSeries: movieCards[],
-        topRatedMovies: movieCards[],
-        youMayLikeMovies: movieCards[]
-      ) => {
-        return {
-          payload: {
-            recentlyUpdatedMovies,
-            trending,
-            newReleaseMovies,
-            newReleaseSeries,
-            topRatedMovies,
-            youMayLikeMovies,
-          },
-        };
-      },
-      reducer: (state, action: PayloadAction<actionPayloadMovies>) => {
-        state.trending = action.payload.trending;
-        state.newReleaseMovies = action.payload.newReleaseMovies;
-        state.newReleaseSeries = action.payload.newReleaseSeries;
-        state.topRatedMovies = action.payload.topRatedMovies;
-        state.youMayLikeMovies = action.payload.youMayLikeMovies;
-      },
+    setTrending(state, action: PayloadAction<movieCards[]>) {
+      state.trending = action.payload;
     },
+    setNewReleaseMovies(state, action: PayloadAction<movieCards[]>) {
+      state.newReleaseMovies = action.payload;
+    },
+    setNewReleaseSeries(state, action: PayloadAction<movieCards[]>) {
+      state.newReleaseSeries = action.payload;
+    },
+    setTopRatedMovies(state, action: PayloadAction<movieCards[]>) {
+      state.topRatedMovies = action.payload;
+    },
+
     setDetailedMovies(state, action: PayloadAction<movieDetails[]>) {
       state.detailedMovies = action.payload;
+    },
+    setSearchQuery(state, action: PayloadAction<string>) {
+      state.searchQuery = action.payload;
     },
   },
 });
 
-export const { setMovies, setNowPlaying, setDetailedMovies } =
-  moviesSlice.actions;
+export const {
+  setSearchQuery,
+  setTrending,
+  setNowPlaying,
+  setDetailedMovies,
+  setNewReleaseMovies,
+  setNewReleaseSeries,
+  setTopRatedMovies,
+} = moviesSlice.actions;
 
 export default moviesSlice.reducer;

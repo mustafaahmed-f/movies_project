@@ -1,10 +1,15 @@
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../Store/store";
 import OwlCarouselCard from "../UI/OwlCarouselCard";
+import { useAppDispatch, useAppSelector } from "../Store/hooks";
+import { getTrendingMovies } from "../Services/moviesAPIs";
+import { setTrending } from "../Store/Features/moviesSlice";
+import MoviesList from "../UI/MoviesList";
+import MovieCardLoader from "../UI/MovieCardLoader";
 
 const options = {
   items: 1,
@@ -23,17 +28,36 @@ const Home: React.FC = () => {
   const {
     nowPlayingMovies,
     // recentlyUpdatedMovies,
-    // trending,
+    trending,
     // newReleaseMovies,
     // newReleaseSeries,
     // topRatedMovies,
     // youMayLikeMovies,
     // detailedMovies,
-  } = useSelector((state: RootState) => state.movies);
+  } = useAppSelector((state: RootState) => state.movies);
+  const dispatch = useAppDispatch();
+
+  //// I used useEffect to get movies after opening the home page with loader indicator
+  //// before fetching data from API.
+
+  useEffect(function () {
+    async function fetchingData(): Promise<any> {
+      //// Getting trending movies and showing them:
+      const trending = await getTrendingMovies();
+      if (trending.length) dispatch(setTrending(trending));
+    }
+
+    fetchingData();
+  }, []);
+
+  console.log("trending", trending);
 
   return (
-    <>
-      <OwlCarousel className="owl-theme h-fit mb-2 mx-0 sm:mb-3" {...options}>
+    <div className="flex flex-col gap-2">
+      {/* <OwlCarousel
+        className="w-screen mx-0 mb-2 owl-theme h-fit sm:mb-3"
+        {...options}
+      >
         {nowPlayingMovies.map((movie) => (
           <div className="item" key={movie.id}>
             <OwlCarouselCard
@@ -45,13 +69,17 @@ const Home: React.FC = () => {
             />
           </div>
         ))}
-      </OwlCarousel>
-    </>
+      </OwlCarousel> */}
+
+      {/* //// Now playing //// */}
+
+      {trending.length ? (
+        <MoviesList title="Trending" movies={trending} />
+      ) : (
+        <MovieCardLoader />
+      )}
+    </div>
   );
 };
 
 export default Home;
-
-export function loader() {
-  return null;
-}

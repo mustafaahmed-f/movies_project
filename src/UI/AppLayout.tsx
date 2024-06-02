@@ -10,9 +10,9 @@ import MainLoader from "./MainLoader";
 export default function AppLayout() {
   const navigation = useNavigation();
   return (
-    <div className="flex flex-col min-h-screen overflow-x-hidden">
+    <div className="flex flex-col w-screen min-h-screen p-0 m-0 ">
       <Header />
-      <main className=" main  py-5 flex flex-grow scroll-smooth scroll-my-1 ">
+      <main className="flex flex-grow w-full py-4 overflow-x-hidden main scroll-smooth sm:py-8">
         {navigation.state === "loading" ? <MainLoader /> : <Outlet />}
       </main>
       <Footer />

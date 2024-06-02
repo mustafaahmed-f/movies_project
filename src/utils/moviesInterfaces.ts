@@ -16,14 +16,52 @@ export interface movieCards {
 }
 
 export interface movieDetails {
-  runtime: number;
-  title: string;
-  vote_average: number;
-  release_date: string;
-  overview: string;
+  adult: boolean;
+  backdrop_path: string;
+  belongs_to_collection: {
+    id: number;
+    name: string;
+    poster_path: string;
+    backdrop_path: string;
+  };
+  budget: number;
+  genres: {
+    id: number;
+    name: string;
+  }[];
+  homepage: string;
+  id: number;
+  imdb_id: string;
   origin_country: string[];
-  genres: { name: string }[];
-  production_companies: { name: string }[];
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  production_companies: {
+    id: number;
+    logo_path: string | null;
+    name: string;
+    origin_country: string;
+  }[];
+  production_countries: {
+    iso_3166_1: string;
+    name: string;
+  }[];
+  release_date: string;
+  revenue: number;
+  runtime: number;
+  spoken_languages: {
+    english_name: string;
+    iso_639_1: string;
+    name: string;
+  }[];
+  status: string;
+  tagline: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
 }
 
 export interface myState {
@@ -35,12 +73,12 @@ export interface myState {
   topRatedMovies: movieCards[];
   youMayLikeMovies: movieCards[];
   detailedMovies: movieDetails[];
+  searchQuery: string;
 }
 
-export interface actionPayloadMovies {
-  trending: movieCards[];
-  newReleaseMovies: movieCards[];
-  newReleaseSeries: movieCards[];
-  topRatedMovies: movieCards[];
-  youMayLikeMovies: movieCards[];
-}
+// export interface actionPayloadMovies {
+//   trending: movieCards[];
+//   newReleaseMovies: movieCards[];
+//   newReleaseSeries: movieCards[];
+//   topRatedMovies: movieCards[];
+// }
