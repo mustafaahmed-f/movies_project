@@ -7,6 +7,7 @@ import {
 // import { RootState } from "../store";
 
 ///// I used redux for caching .. I know it is not a good practice but I am using it for this project
+///// It is better to use react query as I did on the details page
 
 const initialState: myState = {
   nowPlayingMovies: [],
