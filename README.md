@@ -11,7 +11,6 @@
       <li><a href="#About">About</a></li>
       <li><a href="#Technologies">Technologies</a></li>
       <li><a href="#Features">Features</a></li>
-      <li><a href="#Images">Images</a></li>
       <li><a href="#Deployment">Deployment</a></li>
     </ul>
     <hr />
@@ -29,7 +28,7 @@
           >
         </li>
         <li>npm install</li>
-        <li>nodemon OR npm start</li>
+        <li>npm run dev</li>
       </ul>
       <h3 style="margin-top: 4px">==> Contact me :</h3>
       <p>
