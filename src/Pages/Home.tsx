@@ -67,12 +67,3 @@ const Home: React.FC = () => {
 };
 
 export default Home;
-
-// export async function loader() {
-//   const result: movieCards[] = await getTrendingMovies();
-//   if (result.length) {
-//     store.dispatch(setTrending(result));
-//     return result;
-//   }
-//   return null;
-// }

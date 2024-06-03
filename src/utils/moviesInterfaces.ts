@@ -65,11 +65,9 @@ export interface movieDetails {
 }
 
 export interface myState {
-  nowPlayingMovies: movieCards[];
   trending: movieCards[];
   newReleaseMovies: movieCards[];
   topRatedMovies: movieCards[];
-  youMayLikeMovies: movieCards[];
   searchQuery: string;
 }
 

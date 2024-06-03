@@ -10,11 +10,9 @@ import {
 ///// It is better to use react query as I did on the details page
 
 const initialState: myState = {
-  nowPlayingMovies: [],
   trending: [], //// popular movies
   newReleaseMovies: [], ////upcoming movies
   topRatedMovies: [],
-  youMayLikeMovies: [], //// MOvie Recommendations
   searchQuery: "",
 };
 
@@ -22,9 +20,6 @@ export const moviesSlice = createSlice({
   name: "movies",
   initialState,
   reducers: {
-    setNowPlaying(state, action) {
-      state.nowPlayingMovies = action.payload;
-    },
     setTrending(state, action: PayloadAction<movieCards[]>) {
       state.trending = action.payload;
     },
@@ -44,7 +39,6 @@ export const moviesSlice = createSlice({
 export const {
   setSearchQuery,
   setTrending,
-  setNowPlaying,
   setNewReleaseMovies,
   setTopRatedMovies,
 } = moviesSlice.actions;
