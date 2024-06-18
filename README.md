@@ -68,8 +68,8 @@
       </p>
       <p>
         Main Link :
-        <a href="https://665cb5ef77ed458e1c28f01c--moviesappbymustafa.netlify.app/"
-          >https://665cb5ef77ed458e1c28f01c--moviesappbymustafa.netlify.app/</a
+        <a href="https://moviesappbymustafa.netlify.app/"
+          >https://moviesappbymustafa.netlify.app/</a
         >
       </p>
     </section>
